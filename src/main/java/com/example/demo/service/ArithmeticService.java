@@ -8,7 +8,11 @@ public class ArithmeticService {
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("a or b cannot be negative");
     }
-    return a + b;
+    try {
+      return Math.addExact(a, b);
+    } catch (ArithmeticException e) {
+      throw new IllegalArgumentException("integer overflow");
+    }
   }
 
   public int subtract(int a, int b) {
