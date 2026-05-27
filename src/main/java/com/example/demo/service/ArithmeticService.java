@@ -4,30 +4,37 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ArithmeticService {
-  public int add(int a, int b) {
+  public long add(long a, long b) {
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("a or b cannot be negative");
     }
-    long result = (long) a + b;
-    return (int) Math.min(result, Integer.MAX_VALUE);
+    if (a > Long.MAX_VALUE - b) {
+      return Long.MAX_VALUE;
+    }
+    return a + b;
   }
 
-  public int subtract(int a, int b) {
+  public long subtract(long a, long b) {
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("a or b cannot be negative");
     }
-    return Math.subtractExact(a, b);
+    return a - b;
   }
 
-  public int multiply(int a, int b) {
+  public long multiply(long a, long b) {
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("a or b cannot be negative");
     }
-    long result = (long) a * b;
-    return (int) Math.min(result, Integer.MAX_VALUE);
+    if (b == 0) {
+      return 0;
+    }
+    if (a > Long.MAX_VALUE / b) {
+      return Long.MAX_VALUE;
+    }
+    return a * b;
   }
 
-  public int divide(int a, int b) {
+  public long divide(long a, long b) {
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("a or b cannot be negative");
     }

@@ -14,7 +14,7 @@ public class ArithmeticController {
   private final ArithmeticService arithmeticService;
 
   @GetMapping("/add")
-  public ResponseEntity<?> add(@RequestParam int a, @RequestParam int b) {
+  public ResponseEntity<?> add(@RequestParam long a, @RequestParam long b) {
     try {
       return ResponseEntity.status(200).body(arithmeticService.add(a, b));
     } catch (IllegalArgumentException e) {
@@ -25,7 +25,7 @@ public class ArithmeticController {
   }
 
   @GetMapping("/subtract")
-  public ResponseEntity<?> subtract(@RequestParam int a, @RequestParam int b) {
+  public ResponseEntity<?> subtract(@RequestParam long a, @RequestParam long b) {
     try {
       return ResponseEntity.status(200).body(arithmeticService.subtract(a, b));
     } catch (IllegalArgumentException e) {
@@ -36,7 +36,7 @@ public class ArithmeticController {
   }
 
   @GetMapping("/multiply")
-  public ResponseEntity<?> multiply(@RequestParam int a, @RequestParam int b) {
+  public ResponseEntity<?> multiply(@RequestParam long a, @RequestParam long b) {
     try {
       return ResponseEntity.status(200).body(arithmeticService.multiply(a, b));
     } catch (IllegalArgumentException e) {
@@ -47,7 +47,7 @@ public class ArithmeticController {
   }
 
   @GetMapping("/divide")
-  public ResponseEntity<?> divide(@RequestParam int a, @RequestParam int b) {
+  public ResponseEntity<?> divide(@RequestParam long a, @RequestParam long b) {
     try {
       return ResponseEntity.status(200).body(arithmeticService.divide(a, b));
     } catch (IllegalArgumentException e) {

@@ -40,15 +40,15 @@ public class ArithmeticServiceTest {
     assertEquals(5, arithmeticService.add(5, 0));
   }
 
-    @Test
-    void add_with_max_value_and_one_returns_max_value() {
-        assertEquals(Integer.MAX_VALUE, arithmeticService.add(Integer.MAX_VALUE, 1));
-    }
+  @Test
+  void add_with_very_large_b_returns_max_value() {
+    assertEquals(Long.MAX_VALUE, arithmeticService.add(3, 2458235923705L));
+  }
 
-    @Test
-    void add_with_large_numbers_returns_max_value() {
-        assertEquals(Integer.MAX_VALUE, arithmeticService.add(Integer.MAX_VALUE, Integer.MAX_VALUE));
-    }
+  @Test
+  void add_with_both_max_value_returns_max_value() {
+    assertEquals(Long.MAX_VALUE, arithmeticService.add(Long.MAX_VALUE, Long.MAX_VALUE));
+  }
 
   @Test
   void add_with_both_negative_throws_illegal_argument_exception() {
@@ -165,16 +165,15 @@ public class ArithmeticServiceTest {
     assertThrows(IllegalArgumentException.class, () -> arithmeticService.multiply(0, -1));
   }
 
-    @Test
-    void multiply_with_large_numbers_returns_max_value() {
-        assertEquals(Integer.MAX_VALUE, arithmeticService.multiply(50000, 50000));
-    }
+  @Test
+  void multiply_with_large_numbers_returns_max_value() {
+    assertEquals(Long.MAX_VALUE, arithmeticService.multiply(50000, 50000));
+  }
 
-    @Test
-    void multiply_with_max_value_and_two_returns_max_value() {
-        assertEquals(
-            Integer.MAX_VALUE, arithmeticService.multiply(Integer.MAX_VALUE, 2));
-    }
+  @Test
+  void multiply_with_max_value_and_two_returns_max_value() {
+    assertEquals(Long.MAX_VALUE, arithmeticService.multiply(Long.MAX_VALUE, 2));
+  }
 
   @Test
   void divide_with_a_greater_than_b_returns_quotient() {
