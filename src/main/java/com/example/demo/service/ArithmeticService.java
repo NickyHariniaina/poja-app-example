@@ -26,7 +26,11 @@ public class ArithmeticService {
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("a or b cannot be negative");
     }
-    return a * b;
+    try {
+      return Math.multiplyExact(a, b);
+    } catch (ArithmeticException e) {
+      throw new IllegalArgumentException("integer overflow");
+    }
   }
 
   public int divide(int a, int b) {
