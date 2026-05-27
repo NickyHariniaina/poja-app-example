@@ -8,11 +8,8 @@ public class ArithmeticService {
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("a or b cannot be negative");
     }
-    try {
-      return Math.addExact(a, b);
-    } catch (ArithmeticException e) {
-      throw new IllegalArgumentException("integer overflow");
-    }
+    long result = (long) a + b;
+    return (int) Math.min(result, Integer.MAX_VALUE);
   }
 
   public int subtract(int a, int b) {
@@ -26,11 +23,8 @@ public class ArithmeticService {
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("a or b cannot be negative");
     }
-    try {
-      return Math.multiplyExact(a, b);
-    } catch (ArithmeticException e) {
-      throw new IllegalArgumentException("integer overflow");
-    }
+    long result = (long) a * b;
+    return (int) Math.min(result, Integer.MAX_VALUE);
   }
 
   public int divide(int a, int b) {
