@@ -19,7 +19,7 @@ public class ArithmeticService {
     if (a < 0 || b < 0) {
       throw new IllegalArgumentException("a or b cannot be negative");
     }
-    return a - b;
+    return Math.subtractExact(a, b);
   }
 
   public int multiply(int a, int b) {
