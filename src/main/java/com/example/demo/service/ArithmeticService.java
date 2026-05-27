@@ -34,7 +34,7 @@ public class ArithmeticService {
   }
 
   public int divide(int a, int b) {
-    if (a < 0 || b <= 0) {
+    if (a < 0 || b < 0) {
       throw new IllegalArgumentException("a or b cannot be negative");
     }
     if (b == 0) {

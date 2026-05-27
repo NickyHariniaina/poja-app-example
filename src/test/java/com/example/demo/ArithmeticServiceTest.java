@@ -172,9 +172,64 @@ public class ArithmeticServiceTest {
     assertThrows(IllegalArgumentException.class, () -> arithmeticService.multiply(50000, 50000));
   }
 
-  @Test
-  void multiply_with_max_value_and_two_throws_illegal_argument_exception() {
-    assertThrows(
-        IllegalArgumentException.class, () -> arithmeticService.multiply(Integer.MAX_VALUE, 2));
-  }
+    @Test
+    void multiply_with_max_value_and_two_throws_illegal_argument_exception() {
+        assertThrows(
+            IllegalArgumentException.class, () -> arithmeticService.multiply(Integer.MAX_VALUE, 2));
+    }
+
+    @Test
+    void divide_with_a_greater_than_b_returns_quotient() {
+        assertEquals(5, arithmeticService.divide(10, 2));
+    }
+
+    @Test
+    void divide_with_equal_numbers_returns_one() {
+        assertEquals(1, arithmeticService.divide(5, 5));
+    }
+
+    @Test
+    void divide_with_a_less_than_b_returns_zero() {
+        assertEquals(0, arithmeticService.divide(2, 5));
+    }
+
+    @Test
+    void divide_with_zero_a_returns_zero() {
+        assertEquals(0, arithmeticService.divide(0, 5));
+    }
+
+    @Test
+    void divide_with_one_b_returns_a() {
+        assertEquals(10, arithmeticService.divide(10, 1));
+    }
+
+    @Test
+    void divide_with_negative_a_throws_illegal_argument_exception() {
+        assertThrows(IllegalArgumentException.class, () -> arithmeticService.divide(-1, 5));
+    }
+
+    @Test
+    void divide_with_negative_b_throws_illegal_argument_exception() {
+        assertThrows(IllegalArgumentException.class, () -> arithmeticService.divide(5, -1));
+    }
+
+    @Test
+    void divide_with_both_negative_throws_illegal_argument_exception() {
+        assertThrows(IllegalArgumentException.class, () -> arithmeticService.divide(-3, -5));
+    }
+
+    @Test
+    void divide_with_zero_b_throws_illegal_argument_exception() {
+        assertThrows(IllegalArgumentException.class, () -> arithmeticService.divide(5, 0));
+    }
+
+    @Test
+    void divide_with_negative_a_and_zero_b_throws_illegal_argument_exception() {
+        assertThrows(IllegalArgumentException.class, () -> arithmeticService.divide(-1, 0));
+    }
+
+    @Test
+    void divide_with_zero_a_and_negative_b_throws_illegal_argument_exception() {
+        assertThrows(IllegalArgumentException.class, () -> arithmeticService.divide(0, -1));
+    }
 }
