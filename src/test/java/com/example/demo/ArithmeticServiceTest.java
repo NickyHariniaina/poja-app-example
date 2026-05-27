@@ -41,8 +41,8 @@ public class ArithmeticServiceTest {
   }
 
   @Test
-  void add_with_very_large_b_returns_max_value() {
-    assertEquals(Long.MAX_VALUE, arithmeticService.add(3, 2458235923705L));
+  void add_with_very_large_b_returns_sum() {
+    assertEquals(2458235923708L, arithmeticService.add(3, 2458235923705L));
   }
 
   @Test
@@ -166,8 +166,8 @@ public class ArithmeticServiceTest {
   }
 
   @Test
-  void multiply_with_large_numbers_returns_max_value() {
-    assertEquals(Long.MAX_VALUE, arithmeticService.multiply(50000, 50000));
+  void multiply_with_large_numbers_returns_product() {
+    assertEquals(2500000000L, arithmeticService.multiply(50000, 50000));
   }
 
   @Test
